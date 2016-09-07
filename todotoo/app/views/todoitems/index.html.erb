@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Todoitems</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Duedate</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todoitems.each do |todoitem| %>
+      <tr>
+        <td><%= todoitem.description %></td>
+        <td><%= todoitem.duedate %></td>
+        <td><%= link_to 'Show', todoitem %></td>
+        <td><%= link_to 'Edit', edit_todoitem_path(todoitem) %></td>
+        <td><%= link_to 'Destroy', todoitem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Todoitem', new_todoitem_path %>
